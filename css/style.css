@@ -1297,11 +1297,11 @@ section {
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-/* Galerie contenant des vidéos : format Reel Instagram pour TOUS les items
-   (vidéos + images) — cases 9:16 côte à côte, taille proche d'un Reel
-   desktop (~330x590 sur écran large). */
+/* Galerie contenant des vidéos : format Reel Instagram compact pour TOUS
+   les items (vidéos + images) — cases 9:16 côte à côte, taille proche
+   d'une vignette Reel (~217x386px sur desktop). */
 .gallery:has(video) {
-  max-width: 1040px;
+  max-width: 680px;
   margin-left: auto;
   margin-right: auto;
 }
