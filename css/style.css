@@ -1287,21 +1287,20 @@ section {
 
 .gallery__item img,
 .gallery__item video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-/* Vidéos verticales (Reels / TikTok) : on garde le ratio 4:5 des cases images
-   et on remplit avec cover — l'action des Reels est centrée, le crop est neutre */
+/* Vidéos verticales (Reels / TikTok) : la case reste en 4:5 ; cover recadre
+   sur le centre — l'action des Reels y est, le rognage haut/bas est neutre. */
 .gallery__item:has(video) {
   background: #000;
-}
-
-.gallery__item video {
-  object-fit: cover;
 }
 
 .gallery__item:hover {
