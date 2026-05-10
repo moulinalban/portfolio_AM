@@ -1299,13 +1299,17 @@ section {
 
 /* Galerie contenant des vidéos : format Reel Instagram compact pour TOUS
    les items (vidéos + images) — cases 9:16 côte à côte, taille proche
-   d'une vignette Reel (~217x386px sur desktop). */
+   d'une vignette Reel (~217x386px sur desktop).
+   Double sélecteur : .gallery--video (classe explicite) + :has(video)
+   pour les navigateurs récents. */
+.gallery--video,
 .gallery:has(video) {
   max-width: 680px;
   margin-left: auto;
   margin-right: auto;
 }
 
+.gallery--video .gallery__item,
 .gallery:has(video) .gallery__item {
   aspect-ratio: 9 / 16;
   background: #000;
