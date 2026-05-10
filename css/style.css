@@ -1315,6 +1315,44 @@ section {
   background: #000;
 }
 
+/* Bouton son sur les vidéos de galerie */
+.gallery__item video { cursor: pointer; }
+
+.video-sound {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-pill);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.video-sound:hover {
+  background: rgba(30, 144, 255, 0.85);
+  border-color: var(--color-primary);
+  transform: scale(1.04);
+}
+
+.video-sound.is-on {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.video-sound svg { flex-shrink: 0; }
+
 .gallery__item:hover {
   border-color: var(--border-accent);
   transform: translateY(-2px);
