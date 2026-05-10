@@ -1297,9 +1297,16 @@ section {
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-/* Vidéos verticales (Reels / TikTok) : la case reste en 4:5 ; cover recadre
-   sur le centre — l'action des Reels y est, le rognage haut/bas est neutre. */
+/* Vidéos verticales (Reels / TikTok) : ratio 9:16 pour cadrer la vidéo
+   intégralement, et galerie limitée en largeur pour des cases compactes. */
+.gallery:has(video) {
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .gallery__item:has(video) {
+  aspect-ratio: 9 / 16;
   background: #000;
 }
 
