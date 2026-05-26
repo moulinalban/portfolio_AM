@@ -967,14 +967,43 @@ section {
   background: var(--bg-surface);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: inherit;
   transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
   min-height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+.freelance-card::after {
+  content: "→";
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-6);
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--border-default);
+  font-size: 16px;
+  color: var(--text-secondary);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .freelance-card:hover {
   border-color: var(--border-accent);
   background: var(--bg-surface-hover);
   transform: translateY(-2px);
+  color: inherit;
+}
+
+.freelance-card:hover::after {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+  transform: translate(3px, -3px);
 }
 
 .freelance-card__type {
@@ -997,6 +1026,7 @@ section {
   font-weight: 700;
   letter-spacing: -0.02em;
   margin-bottom: var(--space-2);
+  padding-right: 56px;
 }
 
 .freelance-card__location {
@@ -1009,6 +1039,133 @@ section {
   font-size: 15px;
   color: var(--text-secondary);
   line-height: 1.55;
+}
+
+/* ---------- Mockup cartes de visite ---------- */
+.bizcard-stack {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+  justify-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-12) 0;
+}
+
+@media (min-width: 700px) {
+  .bizcard-stack {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+}
+
+.bizcard {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1.6 / 1;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.55),
+    0 12px 24px rgba(0, 0, 0, 0.4),
+    0 2px 4px rgba(255, 255, 255, 0.04) inset;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+@media (min-width: 700px) {
+  .bizcard:nth-child(1) { transform: rotate(-3deg); }
+  .bizcard:nth-child(2) { transform: rotate(2.5deg); }
+}
+
+.bizcard:hover {
+  transform: rotate(0) scale(1.03);
+  box-shadow:
+    0 40px 70px rgba(0, 0, 0, 0.65),
+    0 16px 30px rgba(30, 144, 255, 0.18);
+}
+
+.bizcard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bizcard__caption {
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: var(--space-3);
+}
+
+.bizcard-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ---------- Mockup ordinateur ---------- */
+.laptop {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: var(--space-12) 0;
+}
+
+.laptop__screen {
+  background: #050505;
+  border: 14px solid #1a1a1a;
+  border-bottom-width: 22px;
+  border-radius: 18px 18px 6px 6px;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+}
+
+.laptop__screen::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 5px;
+  background: #2a2a2a;
+  border-radius: 3px;
+  z-index: 2;
+}
+
+.laptop__screen img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.laptop__base {
+  height: 18px;
+  background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 50%, #0e0e0e 100%);
+  border-radius: 0 0 28px 28px;
+  margin: 0 -28px;
+  position: relative;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.45);
+}
+
+.laptop__base::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 7px;
+  background: #050505;
+  border-radius: 0 0 10px 10px;
+}
+
+@media (max-width: 700px) {
+  .laptop__base { margin: 0 -16px; }
 }
 
 .freelance-card__previews {
