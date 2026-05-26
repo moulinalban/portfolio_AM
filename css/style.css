@@ -1009,7 +1009,68 @@ section {
   font-size: 15px;
   color: var(--text-secondary);
   line-height: 1.55;
-  margin-top: auto;
+}
+
+.freelance-card__previews {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-default);
+}
+
+.freelance-card__preview {
+  position: relative;
+  display: block;
+  width: 110px;
+  aspect-ratio: 3 / 2;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border-default);
+  background: var(--bg-surface-alt);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.freelance-card__preview::after {
+  content: "↗";
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 11px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.freelance-card__preview:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.freelance-card__preview:hover::after {
+  opacity: 1;
+}
+
+.freelance-card__preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.freelance-card__preview:hover img {
+  transform: scale(1.05);
 }
 
 /* ---------- CV Preview ---------- */
