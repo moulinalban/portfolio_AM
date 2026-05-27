@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=20260527" />
 </head>
 <body>
 
@@ -23,6 +23,7 @@
       <nav aria-label="Navigation principale">
         <ul class="nav__list">
           <li><a href="index.html" class="nav__link is-active">Accueil</a></li>
+          <li><a href="index.html#realisations" class="nav__link">Réalisations</a></li>
           <li><a href="index.html#experiences" class="nav__link">Expériences</a></li>
           <li><a href="contact.html" class="nav__link">Contact</a></li>
         </ul>
@@ -39,6 +40,7 @@
   <div class="mobile-menu" aria-hidden="true">
     <ul>
       <li><a href="index.html">Accueil</a></li>
+      <li><a href="index.html#realisations">Réalisations</a></li>
       <li><a href="index.html#experiences">Expériences</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
@@ -75,8 +77,14 @@
             </div>
 
             <div class="now-bar">
-              <span class="now-bar__dot" aria-hidden="true"></span>
-              <span>En poste actuel, <strong>Bricolagedirect.com</strong> · Unipro Group · CDI depuis nov. 2025</span>
+              <div class="now-bar__row">
+                <span class="now-bar__dot" aria-hidden="true"></span>
+                <span>En poste actuel, <strong>Bricolagedirect.com</strong> · Unipro Group · CDI depuis nov. 2025</span>
+              </div>
+              <div class="now-bar__row now-bar__row--alt">
+                <span class="now-bar__pulse" aria-hidden="true"></span>
+                <span><strong>Ouvert à de nouvelles opportunités</strong> · Lyon / Saint-Étienne</span>
+              </div>
             </div>
           </div>
 
@@ -130,7 +138,138 @@
             <div class="kpi__label">CA généré via 5 partenariats influenceurs</div>
           </div>
 
+          <div class="kpi kpi--wide fade-up">
+            <div class="kpi__value">
+              +<span data-count="500">0</span>
+            </div>
+            <div class="kpi__label">créas &amp; déclinaisons produites sur 4 ans, du brief au fichier prêt à publier</div>
+          </div>
+
         </div>
+      </div>
+    </section>
+
+    <!-- ============== BANDEAU SECTEURS ============== -->
+    <section class="marquee-section" aria-label="Secteurs">
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span class="marquee__item">E-commerce</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Bricolage</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Jardin</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Piscine</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Tech B2B</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Solutions digitales</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Agence de communication</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Coiffure</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Restauration</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Publicité papier</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Grande distribution</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Sport &amp; coaching</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Artisanat &amp; fermetures</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Print &amp; événementiel</span>
+          <span class="marquee__sep">●</span>
+          <!-- Duplicate for seamless loop -->
+          <span class="marquee__item">E-commerce</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Bricolage</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Jardin</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Piscine</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Tech B2B</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Solutions digitales</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Agence de communication</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Coiffure</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Restauration</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Publicité papier</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Grande distribution</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Sport &amp; coaching</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Artisanat &amp; fermetures</span>
+          <span class="marquee__sep">●</span>
+          <span class="marquee__item">Print &amp; événementiel</span>
+          <span class="marquee__sep">●</span>
+        </div>
+      </div>
+      <p class="sr-only">Secteurs sur lesquels j'ai travaillé : e-commerce, bricolage, jardin, piscine, tech B2B, agence, coiffure, restauration, publicité, grande distribution, sport, artisanat, print et événementiel.</p>
+    </section>
+
+    <!-- ============== CARROUSEL CONTENU ============== -->
+    <section id="realisations">
+      <div class="container">
+        <div class="section-header section-header--row fade-up">
+          <div>
+            <span class="section-label">Réalisations</span>
+            <h2>Mon travail, en un coup d'œil.</h2>
+          </div>
+          <p class="text-secondary" style="max-width:380px;">Quelques visuels et vidéos parmi les dernières productions, tous secteurs confondus.</p>
+        </div>
+      </div>
+
+      <div class="reel-scroller fade-up" tabindex="0">
+        <a href="experiences/bricolagedirect.html" class="reel-card">
+          <video src="assets/img/bricolagedirect/bd-1.mp4" autoplay loop muted playsinline preload="metadata"></video>
+          <span class="reel-card__label">Bricolagedirect.com</span>
+        </a>
+        <a href="experiences/bricolagedirect.html" class="reel-card">
+          <video src="assets/img/bricolagedirect/bd-6.mp4" autoplay loop muted playsinline preload="metadata"></video>
+          <span class="reel-card__stat">+850K vues</span>
+          <span class="reel-card__label">TikTok viral</span>
+        </a>
+        <a href="experiences/leclerc.html" class="reel-card">
+          <video src="assets/img/leclerc/lc-4.mp4" autoplay loop muted playsinline preload="metadata"></video>
+          <span class="reel-card__stat">+2M vues</span>
+          <span class="reel-card__label">E.Leclerc TikTok</span>
+        </a>
+        <a href="experiences/bricolagedirect.html" class="reel-card">
+          <img src="assets/img/bricolagedirect/bd-5.png" alt="Bricolagedirect, Post Instagram" loading="lazy" />
+          <span class="reel-card__label">Post Instagram</span>
+        </a>
+        <a href="experiences/etotem.html" class="reel-card">
+          <img src="assets/img/etotem/et-mondial.png" alt="e-Totem, Mondial de l'Auto" loading="lazy" />
+          <span class="reel-card__label">e-Totem · Mondial de l'Auto</span>
+        </a>
+        <a href="experiences/etotem.html" class="reel-card">
+          <img src="assets/img/etotem/et-linkedin.png" alt="e-Totem, Communication LinkedIn" loading="lazy" />
+          <span class="reel-card__label">e-Totem · LinkedIn</span>
+        </a>
+        <a href="experiences/leclerc.html" class="reel-card">
+          <img src="assets/img/leclerc/lc-2.png" alt="E.Leclerc, Post Instagram" loading="lazy" />
+          <span class="reel-card__label">E.Leclerc · Instagram</span>
+        </a>
+        <a href="experiences/mon-atelier-digital.html" class="reel-card">
+          <img src="assets/img/mad/mad-1.png" alt="Mon Atelier Digital, feed Instagram client" loading="lazy" />
+          <span class="reel-card__label">Mon Atelier Digital</span>
+        </a>
+        <a href="freelance/im-store.html" class="reel-card">
+          <img src="assets/img/freelance/imstore-1.png" alt="IM Store, carte de visite" loading="lazy" />
+          <span class="reel-card__label">IM Store · Identité</span>
+        </a>
+        <a href="freelance/coach-sportif.html" class="reel-card">
+          <img src="assets/img/freelance/coach-1.png" alt="Coach sportif, feed Instagram" loading="lazy" />
+          <span class="reel-card__label">Coach sportif</span>
+        </a>
       </div>
     </section>
 
@@ -283,6 +422,21 @@
       </div>
     </section>
 
+    <!-- ============== CTA FINAL ============== -->
+    <section id="cta">
+      <div class="container">
+        <div class="cta-final fade-up">
+          <h2>Parlons de votre prochaine campagne.</h2>
+          <p>Recruteurs, dir. Marketing/Com, agences, freelance, je suis disponible pour échanger.</p>
+          <div class="cta-final__actions">
+            <a href="contact.html" class="btn btn--primary btn--lg btn--icon">Me contacter</a>
+            <a href="tel:+33606901810" class="btn btn--ghost btn--lg">06 06 90 18 10</a>
+            <a href="https://www.linkedin.com/in/albanmoulin/" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--lg">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ============== FOOTER ============== -->
@@ -320,6 +474,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=20260527"></script>
 </body>
 </html>
