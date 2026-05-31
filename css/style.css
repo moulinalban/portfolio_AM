@@ -452,7 +452,8 @@ section {
   margin-bottom: var(--space-6);
 }
 
-.hero__title-accent {
+.hero__title-accent,
+.accent-text {
   display: inline-block;
   background: linear-gradient(180deg, var(--color-primary), var(--color-primary-dark));
   -webkit-background-clip: text;
