@@ -476,7 +476,7 @@ section {
 .hero__role-divider {
   display: inline-block;
   margin: 0 10px;
-  color: var(--color-primary);
+  color: var(--text-muted);
 }
 
 .hero__intro {
