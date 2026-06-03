@@ -162,7 +162,91 @@ document.querySelectorAll('.gallery__item').forEach((item) => {
   };
 
   btn.addEventListener('click', toggle);
-  video.addEventListener('click', toggle);
+
+  // Clic sur la vidéo : ouvrir en plein écran (sauf si on clique sur le bouton son)
+  video.addEventListener('click', (e) => {
+    if (btn.contains(e.target)) return;
+    if (video.requestFullscreen) video.requestFullscreen();
+    else if (video.webkitRequestFullscreen) video.webkitRequestFullscreen();
+    else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
+  });
+
   video.addEventListener('volumechange', update);
   update();
 });
+
+// Drag-to-scroll sur le carrousel réalisations
+const reelScroller = document.querySelector('.reel-scroller');
+if (reelScroller) {
+  let isDown = false, startX = 0, startScroll = 0, hasMoved = false;
+
+  const onDown = (e) => {
+    isDown = true;
+    hasMoved = false;
+    startX = (e.pageX ?? e.touches?.[0]?.pageX) - reelScroller.offsetLeft;
+    startScroll = reelScroller.scrollLeft;
+  };
+
+  const onMove = (e) => {
+    if (!isDown) return;
+    const x = (e.pageX ?? e.touches?.[0]?.pageX) - reelScroller.offsetLeft;
+    const walk = (x - startX) * 1.4;
+    if (Math.abs(walk) > 5) {
+      hasMoved = true;
+      reelScroller.classList.add('is-dragging');
+    }
+    reelScroller.scrollLeft = startScroll - walk;
+  };
+
+  const onUp = () => {
+    isDown = false;
+    reelScroller.classList.remove('is-dragging');
+  };
+
+  reelScroller.addEventListener('mousedown', onDown);
+  reelScroller.addEventListener('mousemove', onMove);
+  reelScroller.addEventListener('mouseup', onUp);
+  reelScroller.addEventListener('mouseleave', onUp);
+
+  // Empêcher la navigation des cartes quand on a draggé
+  reelScroller.querySelectorAll('.reel-card').forEach((card) => {
+    card.addEventListener('click', (e) => {
+      if (hasMoved) {
+        e.preventDefault();
+        hasMoved = false;
+      }
+    });
+  });
+}
+
+// Popup contact à mi-page
+const contactPopup = document.getElementById('contact-popup');
+if (contactPopup) {
+  let popupShown = false;
+  let popupDismissed = sessionStorage.getItem('contactPopupDismissed') === '1';
+
+  const onPopupScroll = () => {
+    if (popupShown || popupDismissed) return;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (max <= 0) return;
+    const progress = window.scrollY / max;
+    if (progress >= 0.4) {
+      contactPopup.classList.add('is-visible');
+      contactPopup.setAttribute('aria-hidden', 'false');
+      popupShown = true;
+    }
+  };
+
+  window.addEventListener('scroll', onPopupScroll, { passive: true });
+  onPopupScroll();
+
+  const closeBtn = contactPopup.querySelector('.contact-popup__close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      contactPopup.classList.remove('is-visible');
+      contactPopup.setAttribute('aria-hidden', 'true');
+      popupDismissed = true;
+      sessionStorage.setItem('contactPopupDismissed', '1');
+    });
+  }
+}
