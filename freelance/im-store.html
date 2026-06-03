@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="../css/style.css?v=20260603b" />
+  <link rel="stylesheet" href="../css/style.css?v=20260603c" />
 </head>
 <body>
 
@@ -128,14 +128,22 @@
         <div class="section-header fade-up" style="text-align:center; margin-left:auto; margin-right:auto;">
           <span class="section-label" style="justify-content:center;">Réalisation</span>
           <h2>Le flyer.</h2>
-          <p class="section-header__lead" style="margin-left:auto; margin-right:auto;">Format A4, présentation des services autour d'une maison illustrée &amp; bandeau de garanties en bas de page.</p>
+          <p class="section-header__lead" style="margin-left:auto; margin-right:auto;">Format A4, recto &amp; verso. Recto : services présentés autour d'une maison illustrée. Verso : galerie de poses et zone d'intervention.</p>
         </div>
 
-        <div class="flyer-wrap fade-up">
-          <div class="flyer">
-            <img src="../assets/img/freelance/imstore-flyer.png" alt="Flyer IM Store, recto, services autour d'une maison" loading="lazy" />
+        <div class="flyer-stack fade-up">
+          <div class="flyer-wrap">
+            <div class="flyer flyer--tilt-left">
+              <img src="../assets/img/freelance/imstore-flyer-1.png" alt="Flyer IM Store, recto, services autour d'une maison" loading="lazy" />
+            </div>
+            <span class="flyer__caption">Recto, services</span>
           </div>
-          <span class="flyer__caption">Format A4 portrait · diffusion locale</span>
+          <div class="flyer-wrap">
+            <div class="flyer flyer--tilt-right">
+              <img src="../assets/img/freelance/imstore-flyer-2.png" alt="Flyer IM Store, verso, galerie de réalisations et coordonnées" loading="lazy" />
+            </div>
+            <span class="flyer__caption">Verso, galerie &amp; contact</span>
+          </div>
         </div>
       </div>
     </section>

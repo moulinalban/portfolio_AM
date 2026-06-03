@@ -1374,13 +1374,29 @@ section {
 }
 
 /* ---------- Mockup flyer (A4 portrait posé) ---------- */
+.flyer-stack {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-16);
+  justify-items: center;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: var(--space-12) 0;
+}
+
+@media (min-width: 800px) {
+  .flyer-stack {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+  }
+}
+
 .flyer-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 520px;
-  margin: 0 auto;
-  padding: var(--space-12) 0;
+  width: 100%;
+  max-width: 420px;
 }
 
 .flyer {
@@ -1390,13 +1406,15 @@ section {
   border-radius: 6px;
   overflow: hidden;
   background: #fff;
-  transform: rotate(-1.5deg);
   box-shadow:
     0 35px 70px rgba(0, 0, 0, 0.35),
     0 14px 28px rgba(0, 0, 0, 0.22),
     0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
+
+.flyer--tilt-left { transform: rotate(-2.5deg); }
+.flyer--tilt-right { transform: rotate(2deg); }
 
 .flyer::after {
   content: "";
