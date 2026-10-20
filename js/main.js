@@ -250,3 +250,47 @@ if (contactPopup) {
     });
   }
 }
+
+// Carrousels Ads : flèches, points et glisser à la souris
+document.querySelectorAll('.ad-carousel').forEach((car) => {
+  const track = car.querySelector('.ad-carousel__track');
+  const slides = track.querySelectorAll('img');
+  const prev = car.querySelector('.ad-carousel__btn--prev');
+  const next = car.querySelector('.ad-carousel__btn--next');
+  const dotsBox = car.querySelector('.ad-carousel__dots');
+  const dots = Array.from(slides, () => dotsBox.appendChild(document.createElement('span')));
+  const index = () => Math.round(track.scrollLeft / track.clientWidth);
+  const go = (i) => track.scrollTo({ left: i * track.clientWidth });
+  const update = () => {
+    const i = index();
+    dots.forEach((d, k) => d.classList.toggle('is-active', k === i));
+    prev.disabled = i <= 0;
+    next.disabled = i >= slides.length - 1;
+  };
+  prev.addEventListener('click', () => go(index() - 1));
+  next.addEventListener('click', () => go(index() + 1));
+  track.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+  track.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); go(index() + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); go(index() - 1); }
+  });
+  // Glisser à la souris sur ordinateur
+  let startX = null, startScroll = 0;
+  track.addEventListener('pointerdown', (e) => {
+    if (e.pointerType !== 'mouse') return;
+    startX = e.clientX; startScroll = track.scrollLeft;
+    track.style.scrollSnapType = 'none'; track.style.scrollBehavior = 'auto';
+  });
+  window.addEventListener('pointermove', (e) => {
+    if (startX === null) return;
+    track.scrollLeft = startScroll - (e.clientX - startX);
+  });
+  window.addEventListener('pointerup', (e) => {
+    if (startX === null) return;
+    const delta = e.clientX - startX; startX = null;
+    track.style.scrollSnapType = ''; track.style.scrollBehavior = '';
+    const base = Math.round(startScroll / track.clientWidth);
+    go(Math.abs(delta) > 40 ? base + (delta < 0 ? 1 : -1) : base);
+  });
+  update();
+});

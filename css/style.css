@@ -2490,14 +2490,8 @@ section {
 }
 
 /* Galerie créas Ads : visuels 4:5, centrée tant qu'il y a peu de visuels */
-.gallery--ads {
-  max-width: 680px;
-  margin-left: auto;
-  margin-right: auto;
-}
-@media (min-width: 1000px) {
-  .gallery--ads { grid-template-columns: 1fr 1fr; }
-}
+
+
 /* Sur les créas Ads, étiquette sous le visuel pour qu'il reste lisible en entier */
 .gallery--ads .gallery__item {
   aspect-ratio: auto;
@@ -2513,4 +2507,76 @@ section {
 .gallery--ads .gallery__item-label {
   position: static;
   margin: var(--space-3);
+}
+
+/* Carrousel Ads : défilement horizontal avec aimantation, flèches et points */
+.ad-carousel {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+.ad-carousel__track {
+  display: flex;
+  height: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  outline: none;
+}
+.ad-carousel__track::-webkit-scrollbar { display: none; }
+.gallery--ads .ad-carousel__track img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+  scroll-snap-align: start;
+  user-select: none;
+}
+.ad-carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 3;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+.ad-carousel__btn:hover { opacity: 1; }
+.ad-carousel__btn[disabled] { opacity: 0; pointer-events: none; }
+.ad-carousel__btn--prev { left: 10px; }
+.ad-carousel__btn--next { right: 10px; }
+.ad-carousel__dots {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 3;
+}
+.ad-carousel__dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  transition: background 0.2s ease;
+}
+.ad-carousel__dots span.is-active { background: var(--color-primary); }
+/* Les slides ont déjà leurs propres points ; sur écran tactile on glisse, donc pas de flèches */
+.ad-carousel__dots { display: none; }
+@media (hover: none) {
+  .ad-carousel__btn { display: none; }
 }
