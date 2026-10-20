@@ -2488,3 +2488,29 @@ section {
   white-space: nowrap;
   border: 0;
 }
+
+/* Galerie créas Ads : visuels 4:5, centrée tant qu'il y a peu de visuels */
+.gallery--ads {
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 1000px) {
+  .gallery--ads { grid-template-columns: 1fr 1fr; }
+}
+/* Sur les créas Ads, étiquette sous le visuel pour qu'il reste lisible en entier */
+.gallery--ads .gallery__item {
+  aspect-ratio: auto;
+  display: flex;
+  flex-direction: column;
+}
+.gallery--ads .gallery__item img {
+  position: static;
+  aspect-ratio: 4 / 5;
+  height: auto;
+}
+.gallery--ads .gallery__item:hover img { transform: none; }
+.gallery--ads .gallery__item-label {
+  position: static;
+  margin: var(--space-3);
+}
